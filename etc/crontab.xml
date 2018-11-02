@@ -4,8 +4,5 @@
 		<job instance="BirdMarketing\Trader\Cron\Import" method="execute" name="birdmarketing_trader_import">
 			<schedule>* * * * *</schedule>
 		</job>
-		<job instance="BirdMarketing\Trader\Cron\Export" method="execute" name="birdmarketing_trader_export">
-			<schedule>* * * * *</schedule>
-		</job>
 	</group>
 </config>
