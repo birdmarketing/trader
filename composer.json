@@ -3,7 +3,7 @@
 	"description": "Trader integration for the Flux IT website.",
 
 	"type": "magento2-module",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"license": "proprietary",
 
 	"minimum-stability": "stable",

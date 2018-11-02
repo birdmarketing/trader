@@ -19,22 +19,24 @@ class Import {
 	private $writer;
 	private $logger;
 
-	public function __construct(ObjectManager $objectManager, Filesystem $filesystem, Csv $csv) {
-		$this->objectManager = $objectManager;
-		$this->filesystem = $filesystem;
-		$this->csv = $csv;
+	public function execute(): void {
+		$this->setup();
+		$this->logger->info('Import started');
+
+		$tmp = $this->filesystem->getDirectoryRead(DirectoryList::ROOT);
+		$this->logger->info(print_r($tmp, true));
+	}
+
+	private function setup(): void {
+		// get required objects
+		$this->objectManager = ObjectManager::getInstance();
+		$this->filesystem = $this->objectManager->get('Magento\Framework\Filesystem');
+		$this->csv = $this->objectManager->get('Magento\Framework\File\Csv');
 
 		// setup logger with file writer
 		$this->writer = new Stream(BP . '/var/log/trader.log');
 		$this->logger = new Logger();
 		$this->logger->addWriter($this->writer);
-	}
-
-	public function execute(): void {
-		$this->logger->info('Import started');
-
-		$tmp = $this->filesystem->getDirectoryRead(DirectoryList::ROOT);
-		$this->logger->info(print_r($tmp, true));
 	}
 
 	private function import(): void {
