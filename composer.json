@@ -6,6 +6,8 @@
 	"version": "1.0.0",
 	"license": "proprietary",
 
+	"minimum-stability": "stable",
+
 	"authors": [
 		{
 			"name": "Bird Marketing",
