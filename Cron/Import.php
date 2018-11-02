@@ -19,7 +19,7 @@ class Import {
 	private $writer;
 	private $logger;
 
-	public function __constructor(ObjectManager $objectManager, Filesystem $filesystem, Csv $csv) {
+	public function __construct(ObjectManager $objectManager, Filesystem $filesystem, Csv $csv) {
 		$this->objectManager = $objectManager;
 		$this->filesystem = $filesystem;
 		$this->csv = $csv;
